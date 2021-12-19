@@ -17,13 +17,13 @@ Non-Fiction:
 - Historical
 """)
 
-'''
+
 #### Create comma separated file "Library" and declare columns
 f = open('Library.csv', 'w')
 f.write('"Title", "Author", "Genre", "Published YYYY", "Hardcover?", "Read?"')
 f.write('\n')
 f.close()
-'''
+
 
 '''
 #### Append input column answers to Library
