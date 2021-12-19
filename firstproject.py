@@ -19,13 +19,12 @@ Non-Fiction:
 
 
 #### Create comma separated file "Library" and declare columns
-f = open('Library.csv', 'w')
-f.write('"Title", "Author", "Genre", "Published YYYY", "Hardcover?", "Read?"')
-f.write('\n')
-f.close()
+#f = open('Library.csv', 'w')
+#f.write('"Title", "Author", "Genre", "Published YYYY", "Hardcover?", "Read?"')
+#f.write('\n')
+#f.close()
 
 
-'''
 #### Append input column answers to Library
 with open('Library.csv','a') as file:
     titl = str(input('Title of book: '))
@@ -37,4 +36,3 @@ with open('Library.csv','a') as file:
     reyn = str(input('Have you read this book? Y or N: '))
     newentry = '"{}", "{}", "{}", "{}", "{}", "{}"\n'.format(titl, auth, genr, publ, hard, reyn)
     file.write(newentry)
-'''  
