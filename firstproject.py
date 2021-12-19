@@ -8,9 +8,12 @@ Fiction:
 - Romance
 - Graphic Novel
 
+
 Non-Fiction:
 - Memoir
 - Autobiography
+- Politics
+- True Crime
 """)
 
 '''
