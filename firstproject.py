@@ -14,6 +14,7 @@ Non-Fiction:
 - Autobiography
 - Politics
 - True Crime
+- Historical
 """)
 
 '''
