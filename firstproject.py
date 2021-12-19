@@ -40,8 +40,8 @@ file = open('Library.csv','a')
 #### If new_entry True, take input for new line to append to csv file
 #### If new_entry False, stop taking data
 def new_entry(f):
-    answer = True
-    while answer:
+    answer = False
+    while not answer:
         q = input('ADD BOOK? Y or N: ')
         if q.lower() == 'y':
             titl = str(input('Title of book: '))
@@ -53,8 +53,9 @@ def new_entry(f):
             entry = '"{}", "{}", "{}", "{}", "{}", "{}"\n'.format(titl, auth, genr, publ, hard, reyn)
             f.write(entry)
         else:
-            answer = False
+            answer = True
             print('Okay, see you later!')
+    return answer
         
 
 new_entry(file)
