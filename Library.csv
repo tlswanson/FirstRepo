@@ -1,3 +1,5 @@
-"Title", "Author", "Genre", "Published YYYY", "Hardcover?", "Read?"
-"Boonk's Travels", "Swanson, Sean", "NF", "2003", "Y", "Y"
-"Noodle's Travels", "Bug, Noodle", "Mystery", "2014", "N", "Y"
+Title,Author,Genre,Published YYYY,Hardcover?,Read?
+Noodle's Barks,"Bug, Noodle",Autobiography,2015,Y,Y
+Buddy's Life,"Boonk, Buddy",Drama,2003,N,Y
+Mom's Adventures,"Goembel, Debbie",Horror,1967,N,Y
+Erik's Games,"Goembel, Erik",Satire,1993,N,N

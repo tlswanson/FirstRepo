@@ -36,7 +36,7 @@ with open('Library.csv','a') as file:
     newentry = '"{}", "{}", "{}", "{}", "{}", "{}"\n'.format(titl, auth, genr, publ, hard, reyn)
     file.write(newentry)
 '''
-file = open('Library.csv','a')
+
 #### If new_entry True, take input for new line to append to csv file
 #### If new_entry False, stop taking data
 def new_entry(f):
@@ -48,14 +48,28 @@ def new_entry(f):
             auth = str(input('Author of book (Last, First): '))
             genr = str(input('Genre of book: '))
             publ = str(input('Published YYYY of book: '))
-            hard = str(input('Is this a hardcover? Y or N: '))
-            reyn = str(input('Have you read this book? Y or N: '))
-            entry = '"{}", "{}", "{}", "{}", "{}", "{}"\n'.format(titl, auth, genr, publ, hard, reyn)
-            f.write(entry)
+            hard = str(input('Is this a hardcover? Y or N: ')).upper()
+            reyn = str(input('Have you read this book? Y or N: ')).upper()
+            d = {'title':titl, 'author':auth, 'genre':genr, 'year': publ, 'hardcover':hard, 'read':reyn}
+            ver = input('Verify information entered above. Is EVERYTHING correct? Y or N: ')
+            if ver.lower() != 'y':
+                edit = input('What needs to be changed? (Title, Author, Genre, Year, Hardcover, Read): ')
+                edit_val = input('Enter new answer to question: ')
+                if edit.lower() in d.keys():
+                    d[edit] = edit_val
+                    edited = '"{}", "{}", "{}", "{}", "{}", "{}"\n'.format(d['title'], d['author'], d['genre'], d['year'], d['hardcover'].upper(), d['read'].upper())
+                    f.write(edited)
+                    print()
+                else: 
+                    print("Let's just try again.")
+                    break
+            else:
+                entry = '"{}", "{}", "{}", "{}", "{}", "{}"\n'.format(titl, auth, genr, publ, hard, reyn)
+                f.write(entry)
+                print()
         else:
             answer = True
             print('Okay, see you later!')
-    return answer
         
-
-new_entry(file)
+with open('Library.csv','a') as file:
+    new_entry(file)
