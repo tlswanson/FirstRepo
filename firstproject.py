@@ -72,15 +72,37 @@ with open('Library.csv','a', newline='') as file:
 with open('Library.csv','r') as l:
     lib = csv.reader(l) # This is the whole file
     next(lib, None) # Let's just skip over the header, for now
-
+    
     dict_genres = {} # Create a dictionary of genres and count within genres
     for line in lib:
         dict_genres[line[2]] = dict_genres.get(line[2],0) + 1
     print(dict_genres)
     fig, ax = plt.subplots() # Create a pie plot of genre data
     ax.pie(dict_genres.values(), labels=dict_genres.keys(), autopct='%1.1f%%')
+    ax.set(title="Pie plot with `ax.bar` and polar coordinates")
+    #plt.show()
+    
+#### We have to do this again because otherwise lib be blank
+with open('Library.csv','r') as l:
+    lib = csv.reader(l) # This is the whole file, not blank because it's a separate instance
+    next(lib, None) # Let's just skip over the header again
+    
+    unread_in_genres = {} # Let's also plot within this pie what % of our books are still unread
+    for line in lib:
+        if line[5] == 'N': unread_in_genres[line[2]] = unread_in_genres.get(line[2],0) + 1  
+        else: unread_in_genres[line[2]] = unread_in_genres.get(line[2],0)
+    for k in dict_genres.keys():
+        unread_in_genres[k] = unread_in_genres[k] / dict_genres[k] * 100
+    print(unread_in_genres)
+
+    perc_unread = ['Floosy test 1',
+                    'Testing',
+                    'Last test']
+    # the next two lines copy pasted from matplotlib.org documentation on pie plots
+    
+    
+    ax.annotate(perc_unread,xy=(0, 0), xytext=( 1.1, -0.8))
     plt.show()
-        
     
 
 
