@@ -94,15 +94,7 @@ with open('Library.csv','r') as l:
     for k in dict_genres.keys():
         unread_in_genres[k] = unread_in_genres[k] / dict_genres[k] * 100
     print(unread_in_genres)
-
-    perc_unread = ['Floosy test 1',
-                    'Testing',
-                    'Last test']
-    # the next two lines copy pasted from matplotlib.org documentation on pie plots
-    
-    
-    ax.annotate(perc_unread,xy=(0, 0), xytext=( 1.1, -0.8))
-    plt.show()
+ 
     
 
 
