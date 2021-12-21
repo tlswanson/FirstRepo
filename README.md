@@ -1,4 +1,4 @@
-# FirstRepo
+# LibCat
 This is the first repository I have created. Thank you for your time if you are reading this.
 
 This project was created to build familiarity with Git and GitHub, and to provide persons with grande home libraries a way to catalogue and analyze them. The first test subject for this project lies within my own household. At the inception of this README file I stare at two bookcases begging for siblings, as stacks of unshelved works threaten to fall over on the carpet indented by the weight of these placeless legacies.
