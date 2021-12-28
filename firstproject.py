@@ -23,6 +23,7 @@ Non-Fiction:
 - Historical
 """)
 
+
 #### Create comma separated file "Library" and declare columns
 #with open('Library.csv', 'w', newline='') as f:
     #writing = csv.writer(f)
@@ -36,6 +37,20 @@ def new_entry(f):
     while not answer:
         q = input('ADD BOOK? Y or N: ')
         if q.lower() == 'y':
+            menu = {}
+            menu['1'] = 'Dictionary'
+            menu['2'] = 'Encyclopedia'
+            menu['3'] = 'Guide (e.g. Video Game Guide)'
+            menu['4'] = 'Textbook'
+            menu['5'] = 'Educational Non-Textbook (e.g. Bird Watching, Bartending)'
+            menu['6'] = 'Series Novel (e.g. Star Wars, Hardy Boys)'
+            menu['7'] = 'Non-Series Novel (e.g. Catch 22, Holes, novels without distinct series or franchise names)'
+            option = sorted(menu.keys())
+            for num in option:
+                print(num, menu[num])
+
+            #q2 = input('Enter type of book entry, from menu: ')
+
             titl = str(input('Title of book: '))
             auth = str(input('Author of book (Last, First): '))
             genr = str(input('Genre of book: '))
@@ -95,7 +110,7 @@ with open('Library.csv','r') as l:
         unread_in_genres[k] = unread_in_genres[k] / dict_genres[k] * 100
     print(unread_in_genres)
  
-    print(__name__)
+    
 
 
 
