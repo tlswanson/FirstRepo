@@ -1,4 +1,4 @@
-# FirstRepo
-First repository, using hello world
+# LibCatChanges
+Appending-to-main is simply the code I plan on appending to main.
 
-This will be the main project, upon which branches with edits can be created. Let us test this together.
+This will be the primary testing branch, through which I determine what I wish the final executable to be.
