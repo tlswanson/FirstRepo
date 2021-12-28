@@ -95,7 +95,7 @@ with open('Library.csv','r') as l:
         unread_in_genres[k] = unread_in_genres[k] / dict_genres[k] * 100
     print(unread_in_genres)
  
-    
+    print(__name__)
 
 
 
