@@ -45,35 +45,39 @@ def new_entry(f):
             menu['5'] = 'Educational Non-Textbook (e.g. Bird Watching, Bartending)'
             menu['6'] = 'Series Novel (e.g. Star Wars, Hardy Boys)'
             menu['7'] = 'Non-Series Novel (e.g. Catch 22, Holes, novels without distinct series or franchise names)'
+            
             option = sorted(menu.keys())
             for num in option:
                 print(num, menu[num])
 
-            #q2 = input('Enter type of book entry, from menu: ')
+            q2 = input('Enter type of book entry, from menu: ')
 
-            titl = str(input('Title of book: '))
-            auth = str(input('Author of book (Last, First): '))
-            genr = str(input('Genre of book: '))
-            publ = str(input('Published YYYY of book: '))
-            hard = str(input('Is this a hardcover? Y or N: ')).upper()
-            reyn = str(input('Have you read this book? Y or N: ')).upper()
-            d = {'title':titl, 'author':auth, 'genre':genr, 'year': publ, 'hardcover':hard, 'read':reyn}
-            ver = input('Verify information entered above. Is EVERYTHING correct? Y or N: ')
-            if ver.lower() != 'y':
-                edit = input('What needs to be changed? (Title, Author, Genre, Year, Hardcover, Read): ')
-                edit_val = input('Enter new answer to question: ')
-                if edit.lower() in d.keys():
-                    d[edit] = edit_val
-                    edited = [d['title'], d['author'], d['genre'], d['year'], d['hardcover'].upper(), d['read'].upper()]
-                    csv.writer(f).writerow(edited)
+            if q2 == '7':
+                titl = str(input('Title of book: '))
+                auth = str(input('Author of book (Last, First): '))
+                genr = str(input('Genre of book: '))
+                publ = str(input('Published YYYY of book: '))
+                hard = str(input('Is this a hardcover? Y or N: ')).upper()
+                reyn = str(input('Have you read this book? Y or N: ')).upper()
+                d = {'title':titl, 'author':auth, 'genre':genr, 'year': publ, 'hardcover':hard, 'read':reyn}
+                ver = input('Verify information entered above. Is EVERYTHING correct? Y or N: ')
+                if ver.lower() != 'y':
+                    edit = input('What needs to be changed? (Title, Author, Genre, Year, Hardcover, Read): ')
+                    edit_val = input('Enter new answer to question: ')
+                    if edit.lower() in d.keys():
+                        d[edit] = edit_val
+                        edited = [d['title'], d['author'], d['genre'], d['year'], d['hardcover'].upper(), d['read'].upper()]
+                        csv.writer(f).writerow(edited)
+                        print()
+                    else: 
+                        print("Let's just try again.")
+                        break
+                else:
+                    entry = [titl, auth, genr, publ, hard, reyn]
+                    csv.writer(f).writerow(entry)
                     print()
-                else: 
-                    print("Let's just try again.")
-                    break
-            else:
-                entry = [titl, auth, genr, publ, hard, reyn]
-                csv.writer(f).writerow(entry)
-                print()
+            else: 
+                break
         else:
             answer = True
             print('Okay, see you later!\n')
