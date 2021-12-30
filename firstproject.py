@@ -40,23 +40,37 @@ def new_entry(f):
             menu = {}
             menu['1'] = 'Dictionary'
             menu['2'] = 'Encyclopedia'
-            menu['3'] = 'Guide (e.g. Video Game Guide)'
+            menu['3'] = 'Strategy Guide (i.e. Video Game Guide)'
             menu['4'] = 'Textbook'
             menu['5'] = 'Educational Non-Textbook (e.g. Bird Watching, Bartending)'
             menu['6'] = 'Series Novel (e.g. Star Wars, Hardy Boys)'
-            menu['7'] = 'Non-Series Novel (e.g. Catch 22, Holes, novels without distinct series or franchise names)'
+            menu['7'] = 'Non-Series Novel (e.g. Catch 22, Holes; novels without distinct series or franchise names)'
             
             option = sorted(menu.keys())
             for num in option:
                 print(num, menu[num])
 
             q2 = input('Enter type of book entry, from menu: ')
-
-            if q2 == '7':
+            if q2 == '1':
+                titl = str(input('Full Dictionary Title: '))
+                publ = str(input('Published YYYY: '))
+            elif q2 == '2':
+                titl = str(input('Encyclopedia Title: '))
+                publ = str(input('Published YYYY: '))
+                voln = str(input('Volume #: '))
+                vold = str(input('Volume description (e.g. A - And, Mammals): '))
+            elif q2 == '3':
+                game = str(input('Game: '))
+                titl = str(input('Full Guide Title with Edition: '))
+            elif q2 == '4':
+                titl = str(input('Textbook Title: '))
+                edit = str(input('Edition: '))
+                auth = str(input('Author(s) of book in Last, First (& First Last): '))                
+            elif q2 == '7':
                 titl = str(input('Title of book: '))
                 auth = str(input('Author of book (Last, First): '))
                 genr = str(input('Genre of book: '))
-                publ = str(input('Published YYYY of book: '))
+                publ = str(input('Published YYYY: '))
                 hard = str(input('Is this a hardcover? Y or N: ')).upper()
                 reyn = str(input('Have you read this book? Y or N: ')).upper()
                 d = {'title':titl, 'author':auth, 'genre':genr, 'year': publ, 'hardcover':hard, 'read':reyn}
