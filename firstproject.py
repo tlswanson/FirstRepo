@@ -8,10 +8,12 @@ import sqlite3
 conn = sqlite3.connect('testing.db')
 curs_conn = conn.cursor()
 
-curs_conn.execute("INSERT INTO stocks VALUES ('2007-01-05','BUY','RBAT',100,36.14)")
+curs_conn.execute('''CREATE TABLE textbook
+               (text title, edition, authors)''')
+#curs_conn.execute("INSERT INTO dicts VALUES ('Dictionary of Testing',2022)")
 
-for row in curs_conn.execute('SELECT * FROM stocks'):
-        print(row)
+#for row in curs_conn.execute('SELECT * FROM dicts'):
+        #print(row)
 
 """Let's keep track of our book genres and number of books within each genre.
 First, let's refresh our mind of some common genres:
