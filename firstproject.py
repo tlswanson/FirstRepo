@@ -1,10 +1,19 @@
 import csv
-import numpy as np
-import matplotlib
-import matplotlib.pyplot as plt
-from numpy.core.function_base import linspace
+#import numpy as np
+#import matplotlib
+#import matplotlib.pyplot as plt
+#from numpy.core.function_base import linspace
+import sqlite3
 
-print("""Let's keep track of our book genres and number of books within each genre.
+conn = sqlite3.connect('testing.db')
+curs_conn = conn.cursor()
+
+curs_conn.execute("INSERT INTO stocks VALUES ('2007-01-05','BUY','RBAT',100,36.14)")
+
+for row in curs_conn.execute('SELECT * FROM stocks'):
+        print(row)
+
+"""Let's keep track of our book genres and number of books within each genre.
 First, let's refresh our mind of some common genres:
 Fiction:
 - Detective & Mystery
@@ -21,7 +30,7 @@ Non-Fiction:
 - Politics
 - True Crime
 - Historical
-""")
+"""
 
 
 #### Create comma separated file "Library" and declare columns
@@ -97,12 +106,12 @@ def new_entry(f):
             print('Okay, see you later!\n')
         
 #### Option to add books is initiated
-with open('Library.csv','a', newline='') as file:
-    new_entry(file)
+'''with open('Library.csv','a', newline='') as file:
+    new_entry(file)'''
 
 #### Let's start messing with the data now
 #### I will make a dictionary of the genres and count within genre, to be pie plotted
-with open('Library.csv','r') as l:
+'''with open('Library.csv','r') as l:
     lib = csv.reader(l) # This is the whole file
     next(lib, None) # Let's just skip over the header, for now
     
@@ -113,8 +122,9 @@ with open('Library.csv','r') as l:
     fig, ax = plt.subplots() # Create a pie plot of genre data
     ax.pie(dict_genres.values(), labels=dict_genres.keys(), autopct='%1.1f%%')
     ax.set(title="Pie plot with `ax.bar` and polar coordinates")
-    #plt.show()
+    #plt.show()'''
     
+'''
 #### We have to do this again because otherwise lib be blank
 with open('Library.csv','r') as l:
     lib = csv.reader(l) # This is the whole file, not blank because it's a separate instance
@@ -127,7 +137,7 @@ with open('Library.csv','r') as l:
     for k in dict_genres.keys():
         unread_in_genres[k] = unread_in_genres[k] / dict_genres[k] * 100
     print(unread_in_genres)
- 
+ '''
     
 
 
